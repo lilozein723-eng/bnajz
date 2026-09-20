@@ -263,50 +263,43 @@ body{
   .links-left{gap:10px;}
   .link-item{font-size:10px;}
 }
+
+/* مطابق للتصميم المرسل */
+.page{position:relative;z-index:2;min-height:100%;max-width:none;width:100%;margin:0;padding:clamp(20px,7vw,44px) clamp(18px,6vw,56px) 24px;display:flex;flex-direction:column;align-items:stretch;}
+.top-strip,.links-row,.bottom-btn{display:none;}
+.login-card{width:100%;max-width:480px;margin:clamp(70px,18vh,150px) auto 0;padding:0;background:transparent;border:0;box-shadow:none;}
+.login-card::before{content:"BNA";display:block;width:max-content;margin:0 auto 42px;padding:12px 25px;border-radius:8px;background:rgba(255,255,255,.72);color:#2f3336;font-size:25px;font-weight:700;letter-spacing:3px;}
+.login-card::after{content:"تسجيل الدخول";display:block;margin-bottom:clamp(12px,3.4vw,17px);font-size:clamp(15px,3.9vw,19px);font-weight:700;}
+.input-row{display:block;border:0;border-bottom:1px solid rgba(242,243,244,.88);}
+.input-row input{width:100%;padding:0 2px 7px;text-align:right;font-family:inherit;font-size:clamp(13px,3.3vw,16px);}
+.input-row input::placeholder{color:transparent;}
+.next-btn{width:clamp(78px,18vw,104px);height:clamp(40px,9.6vw,48px);margin-top:clamp(11px,2.8vw,15px);margin-inline-start:auto;border-radius:999px;padding:0;display:grid;place-items:center;background:#4caf50;font-size:0;box-shadow:none;}
+.next-btn::before{content:"→";font-size:21px;color:#fff;}
+.next-btn:hover{background:#45a049;transform:none;box-shadow:none;}
+.err{margin:10px 0 0;min-height:1.2em;text-align:right;font-size:12px;color:#ffb4a8;}
+.services{display:block;margin-top:auto;padding-top:clamp(18px,5vw,30px);}
+.rail{direction:rtl;display:flex;gap:clamp(10px,3vw,16px);overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 2px 6px;scrollbar-width:none;}
+.rail::-webkit-scrollbar{display:none;}
+.tile{scroll-snap-align:center;flex:0 0 auto;width:clamp(96px,30vw,130px);background:rgba(255,255,255,.72);border:0;border-radius:8px;padding:clamp(12px,3.4vw,16px) 8px;display:flex;flex-direction:column;align-items:center;gap:10px;font-family:inherit;}
+.tile-ic{width:clamp(38px,11vw,46px);height:clamp(38px,11vw,46px);border-radius:50%;display:grid;place-items:center;}
+.tile-ic svg{width:58%;height:58%;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}.tile-ic .fillw{fill:#fff;stroke:none;}
+.ic-green{background:#2ea043;}.ic-gold{background:#f4a821;}.ic-blue{background:#29a3e0;}.tile-label{color:#2f3336;font-size:clamp(11px,3vw,13px);font-weight:600;text-align:center;line-height:1.2;}
+.dots{display:flex;justify-content:center;gap:7px;margin-top:clamp(10px,3vw,14px);}.dots span{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.35);}.dots span.on{background:#fff;width:16px;border-radius:4px;}
 </style>
 </head>
 <body>
   <div class="bg"></div>
 
   <div class="page">
-    <!-- شريط أعلى (مرئي جزئياً مثل الصورة) -->
-    <div class="top-strip">
-      <div class="strip-line"></div>
-    </div>
-
-    <!-- بطاقة اللوجين -->
     <div class="login-card">
-      <svg class="user-icon" viewBox="0 0 24 24">
-        <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.34 0-10 1.67-10 5v3h20v-3c0-3.33-6.66-5-10-5z"/>
-      </svg>
       <div class="input-row">
-      <input id="username" name="username" type="text" placeholder="Nom d'utilisateur">
+        <input id="username" name="username" type="text" placeholder="إسم المستخدم" autocomplete="username" dir="auto">
       </div>
     </div>
 
-    <!-- زرار NEXT -->
-    <a class="next-btn" id="nextBtn" href="./password.html">NEXT</a>
+    <button class="next-btn" id="nextBtn" type="button" aria-label="دخول"></button>
 
     <div class="err" id="err"></div>
-
-    <!-- الروابط -->
-    <div class="links-row">
-      <div class="links-left">
-        <a class="link-item" href="#">
-          <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zm-8 2V5h2v6h1.17L12 13.17 9.83 11H11zm-6 7h14v2H5z"/></svg>
-          User guide
-        </a>
-        <a class="link-item" href="#">
-          <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zm-8 2V5h2v6h1.17L12 13.17 9.83 11H11zm-6 7h14v2H5z"/></svg>
-          Our offers
-        </a>
-      </div>
-      <button class="lang-btn">FREN</button>
-    </div>
-
-    <!-- أزرار الأسفل -->
-    <button class="bottom-btn">ONLINE ACCOUNT PRE-OPENING</button>
-    <button class="bottom-btn">ONLINE FINANCING REQUEST</button>
 
     <nav class="services" aria-label="الخدمات">
       <div class="rail" id="rail">
