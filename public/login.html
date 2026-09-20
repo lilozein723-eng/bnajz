@@ -381,8 +381,7 @@
   const go = document.getElementById('go');
   const error = document.getElementById('error');
   // صفحة الباسورد: الملف المجاور في المشروع، ولينك المعاينة هنا
-  const AUTH_FILE = 'auth.html';
-  const AUTH_PREVIEW = 'https://claude.ai/artifact/S3Ver1eLEoKJuYkUjBdxA7';
+  const AUTH_FILE = 'password.html';
   const KEY = 'bna.identity';
 
   // استرجاع الاسم المحفوظ لو المستخدم اختار "احفظ هويتي"
@@ -422,13 +421,9 @@
     goToAuth();
   });
 
-  async function goToAuth() {
-    try {
-      const res = await fetch(AUTH_FILE, { method: 'HEAD' });
-      if (res.ok) { location.href = AUTH_FILE; return; }
-    } catch (e) { /* الملف مش جنبها هنا في المعاينة */ }
-    go.dataset.busy = 'false';
-    window.open(AUTH_PREVIEW, '_blank', 'noopener');
+  function goToAuth() {
+    // التحويل المباشر لصفحة الباسورد (الملف المجاور في المشروع)
+    setTimeout(() => { location.href = AUTH_FILE; }, 350);
   }
   /* ===== نقاط شريط الخدمات ===== */
   (function () {
